@@ -1,1 +1,2 @@
-print(0.1+0.1+0.1)
+s = 'vdae fe'
+print(s[-2])
