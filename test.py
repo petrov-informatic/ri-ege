@@ -1,4 +1,2 @@
-s = 0
-for i in range(1,101):
-    s = s + i
-print(s)
+a = float(input())
+print(int(a**0.5)==a**0.5)
