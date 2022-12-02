@@ -1,3 +1,6 @@
-for i in range(10):
-    i = 2
-    print(1)
+a = 'первый'
+b = 1
+c = 2
+# result = str(b)+' + '+str(c)+' = '+str(b+c)
+result = f'{b} + {c} = {b+c}'
+print(result)
