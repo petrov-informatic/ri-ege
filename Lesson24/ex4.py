@@ -5,12 +5,13 @@ def good(n):
 
 
 s = 'ЕГЭ'
-words = [''.join(i) for i in product(s, repeat=5)]
-count = 0
-for word in words:
-    if good(word):
-        count += 1
-print(count)
+words = [''.join(i) for i in product(s, repeat=5) if good(''.join(i))]
+print(len(words))
+# count = 0
+# for word in words:
+#     if good(word):
+#         count += 1
+# print(count)
 
 # s = 'ЕГЭ'
 # count = 0
