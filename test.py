@@ -1,1 +1,7 @@
-print(62**5)
+a = 'qwerty'
+a = list(a)
+a[3] = 'p'
+a = ''.join(a)
+print(a)
+
+
