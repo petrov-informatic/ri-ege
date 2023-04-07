@@ -1,26 +1,15 @@
-a = [[int(j) for j in i.split()] for i in open('file.txt').read().splitlines() if len(i)]
-# a = [
-#     [43, 47, 25, 35],
-#     [49, 52, 83, 64],
-#     [97, 8, 22, 32],
-#     [36, 7, 85, 74]
-# ]
+def game(x, y, i, win_i):
+    if x+y>=40 or i > max(win_i):
+        if x+y <= 49:
+            return i in win_i
+        return i not in win_i
+    return (all if i%2==win_i[0]%2 else any)([game(x+1,y,i+1,win_i), game(x,y+1,i+1,win_i), game(x*2,y,i+1,win_i), game(x,y*2,i+1,win_i)])
 
 
-def robot(function):
-    m = len(a)
-    n = len(a[0])
-    d = [[0 for j in range(n)] for i in range(m)]
-    d[0][0] = a[0][0]
-    for i in range(1, m):
-        d[i][0] = d[i - 1][0] + a[i][0] - 20
-    for j in range(1, n):
-        d[0][j] = d[0][j - 1] + a[0][j] - 15
-    for i in range(1, m):
-        for j in range(1, n):
-            d[i][j] = function(a[i][j] + d[i][j - 1] - 15, a[i][j] + d[i - 1][j] - 20, a[i][j] + d[i - 1][j - 1] - 10)
-    print(d[m - 1][n - 1])
-
-
-robot(max)
-robot(min)
+r = range(1, 26)
+answers = {
+    19: [s for s in r if game(14,s,0,[2])],
+    20: len([s for s in r if game(14,s,0,[3])]),
+    21: [s for s in r if game(14, s, 0, [2,4]) and not game(14,s,0,[2])]
+}
+print(answers)
